@@ -15,13 +15,14 @@ const Todos = () => {
   }
   useEffect(()=>{
 fetchData()
-  },[data])
+  },[])
   const handleUpdateClick = (id)=>{
 navigate(`update/${id}`)
   }
   const handleDeleteClick = (id)=>{
     axios.delete("http://localhost:3000/delete/"+id)
     .then(result=>{console.log(result)
+      fetchData()
       
     })
     .catch(err=>console.log(err))
